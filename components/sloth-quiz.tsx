@@ -14,27 +14,7 @@ export default function SlothQuiz() {
   const [answered, setAnswered] = useState(false)
 
   const handleAnswerSelect = (answerIndex: number) => {
-    if (answered) return
-
-    setSelectedAnswer(answerIndex)
-    setAnswered(true)
-
-    // Check if answer is correct and update score
-    if (answerIndex === questions[currentQuestion].correctAnswer) {
-      setScore(score + 1)
-    }
-
-    // Move to next question after delay
-    setTimeout(() => {
-      const nextQuestion = currentQuestion + 1
-      if (nextQuestion < questions.length) {
-        setCurrentQuestion(nextQuestion)
-        setSelectedAnswer(null)
-        setAnswered(false)
-      } else {
-        setShowScore(true)
-      }
-    }, 1500)
+    // TODO: Add logic to handle the answer selection
   }
 
   const resetQuiz = () => {
@@ -46,11 +26,7 @@ export default function SlothQuiz() {
   }
 
   const getScoreMessage = () => {
-    const percentage = (score / questions.length) * 100
-    if (percentage === 100) return scoreMessages[0]
-    if (percentage >= 80) return scoreMessages[1]
-    if (percentage >= 60) return scoreMessages[2]
-    if (percentage >= 40) return scoreMessages[3]
+    // TODO: Add logic to get the score message based on the score
     return scoreMessages[4]
   }
 
